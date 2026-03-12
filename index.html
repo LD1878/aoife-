@@ -3,145 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aoife | Executive Tech English Málaga</title>
+    <title>Aoife | Executive English Consultancy Málaga</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
-        /* CSS Variables for Ultimate Consistency */
+        /* Executive Luxury Variables */
         :root {
-            --bg-dark: #050508;
-            --text-main: #F4F4F5;
-            --text-muted: #A1A1AA;
-            --accent-cyan: #00F0FF;
-            --accent-cyan-dim: rgba(0, 240, 255, 0.15);
-            --accent-gold: #D4AF37;
-            --glass-bg: rgba(255, 255, 255, 0.02);
-            --glass-border: rgba(255, 255, 255, 0.06);
+            --bg-main: #F8F9FA;
+            --bg-surface: #FFFFFF;
+            --text-dark: #0F172A;
+            --text-muted: #475569;
+            --accent-brand: #1E293B; /* Deep Slate */
+            --accent-gold: #B4904A;
+            --border-light: #E2E8F0;
         }
 
-        /* Mobile-First Reset */
+        /* Reset & Base */
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         
         body, html {
-            background-color: var(--bg-dark); color: var(--text-main);
-            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-main); color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden; scroll-behavior: smooth;
-            /* Enhanced dynamic background */
-            background-image: 
-                radial-gradient(circle at 50% -20%, var(--accent-cyan-dim), transparent 60%),
-                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-            background-size: 100% 100%, 30px 30px, 30px 30px;
-            background-attachment: fixed;
         }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 0.5rem; }
-        p { line-height: 1.7; color: var(--text-muted); font-weight: 300; font-size: 1.05rem; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-dark); }
+        p { line-height: 1.7; color: var(--text-muted); font-weight: 400; font-size: 1.05rem; }
         
-        /* Flashy Gradient Text Utility */
-        .text-gradient {
-            background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-cyan) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        /* Mobile Navigation */
+        /* Navigation - Clean & Crisp */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 1.5rem 1.5rem; border-bottom: 1px solid var(--glass-border);
+            padding: 1.5rem 5vw; border-bottom: 1px solid var(--border-light);
             position: fixed; top: 0; width: 100%;
-            background: rgba(5, 5, 8, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
         }
-        .logo { font-size: 1.3rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; color: var(--text-main);}
-        .logo span { color: var(--accent-cyan); text-shadow: 0 0 10px var(--accent-cyan-dim); }
+        .logo { font-size: 1.4rem; font-weight: 600; letter-spacing: 1px; cursor: pointer; color: var(--text-dark);}
+        .logo span { color: var(--accent-gold); }
         
         .nav-controls { display: flex; gap: 1rem; align-items: center; }
         
         .btn-outline {
-            background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan);
-            padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease;
+            background: transparent; border: 1px solid var(--border-light); color: var(--text-dark);
+            padding: 0.5rem 1.2rem; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif;
+            font-size: 0.85rem; font-weight: 500; transition: all 0.3s ease;
         }
-        .btn-outline:hover { background: var(--accent-cyan); color: var(--bg-dark); box-shadow: 0 0 15px var(--accent-cyan-dim); }
+        .btn-outline:hover { border-color: var(--accent-brand); }
         
-        /* High-End Solid Button */
         .btn-solid {
-            background: linear-gradient(90deg, var(--accent-cyan), #00b3ff); color: var(--bg-dark); border: none;
-            padding: 0.6rem 1.2rem; border-radius: 4px; cursor: pointer; font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
-            transition: all 0.3s ease;
+            background: var(--accent-brand); color: #fff; border: none;
+            padding: 0.6rem 1.5rem; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif;
+            font-weight: 500; font-size: 0.85rem; transition: background 0.3s ease;
         }
-        .btn-solid:hover { box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4); transform: translateY(-2px); }
-        .btn-solid:active { transform: scale(0.96); }
+        .btn-solid:hover { background: #000; }
 
         /* Main App Container */
-        #app { margin-top: 80px; padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 4rem; }
+        #app { margin-top: 80px; padding: 4rem 1.5rem; display: flex; flex-direction: column; gap: 5rem; max-width: 1200px; margin-left: auto; margin-right: auto; }
 
-        /* Premium Glass Components with Hover Glows */
-        .glass-panel {
-            background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border); border-radius: 12px; padding: 2rem;
-            position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Surface Cards (Replacing Glass) */
+        .surface-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light); border-radius: 4px; padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .surface-panel:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
         }
         
         .tag { 
-            color: var(--accent-gold); font-size: 0.8rem; text-transform: uppercase; 
-            letter-spacing: 2px; display: block; margin-bottom: 1rem; font-weight: 500;
+            color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; 
+            letter-spacing: 1.5px; display: block; margin-bottom: 1.5rem; font-weight: 600; font-family: 'Inter', sans-serif;
         }
 
-        /* Typography sizing for Mobile */
-        .hero-title { font-size: 2.5rem; line-height: 1.1; margin-bottom: 1rem; }
-        .hero-subtitle { font-size: 1.1rem; margin-bottom: 2rem; }
+        /* Typography */
+        .hero-title { font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 700px; }
+
+        /* Image Placeholder */
+        .profile-image-container {
+            width: 100%; height: 300px; background: #E2E8F0; border-radius: 4px;
+            display: flex; align-items: center; justify-content: center; color: var(--text-muted);
+            margin-bottom: 2rem; font-size: 0.9rem; border: 1px dashed #CBD5E1;
+        }
 
         /* Pricing Cards */
-        .price-card { display: flex; flex-direction: column; height: 100%; border-top: 2px solid var(--glass-border); }
-        .price-card.featured { 
-            border-top: 3px solid var(--accent-cyan); 
-            background: linear-gradient(180deg, rgba(0, 240, 255, 0.05) 0%, transparent 100%);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.05);
-        }
-        .price-card.corporate { border-top: 2px solid var(--accent-gold); }
-        .price-amount { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 300; color: #fff; margin: 1rem 0; }
-        .price-amount span { font-size: 1.2rem; color: var(--text-muted); }
-        .price-features { margin-top: 1.5rem; margin-bottom: 2rem; list-style: none; padding: 0; flex-grow: 1;}
+        .price-card { display: flex; flex-direction: column; height: 100%; border-top: 3px solid transparent; }
+        .price-card.featured { border-top-color: var(--accent-brand); }
+        .price-card.corporate { border-top-color: var(--accent-gold); }
+        .price-amount { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--text-dark); margin: 1rem 0; }
+        .price-amount span { font-size: 1.2rem; color: var(--text-muted); font-family: 'Inter', sans-serif; font-weight: 300;}
+        .price-features { margin-top: 1.5rem; margin-bottom: 2.5rem; list-style: none; padding: 0; flex-grow: 1;}
         .price-features li { margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.75rem;}
-        .price-features li::before { content: '✦'; color: var(--accent-cyan); font-size: 0.8rem; margin-top: 0.2rem;}
-        .corporate .price-features li::before { color: var(--accent-gold); }
+        .price-features li::before { content: '—'; color: var(--accent-gold); font-weight: bold;}
 
-        /* Scroll Animations */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* ========================================================
-           DESKTOP UPGRADES (Min-width 1024px) 
-           ======================================================== */
+        /* Desktop Grid */
         @media (min-width: 1024px) {
-            nav { padding: 1.5rem 5vw; }
-            #app { padding: 4rem 5vw; max-width: 1400px; margin: 80px auto 0; gap: 8rem;}
-            
-            .hero-title { font-size: 4.5rem; max-width: 800px; }
-            .hero-subtitle { font-size: 1.25rem; max-width: 600px; }
-            
-            .desktop-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem; align-items: start; }
+            #app { padding: 6rem 5vw; gap: 8rem; }
+            .hero-title { font-size: 4rem; max-width: 800px; }
+            .desktop-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4rem; align-items: start; }
             .grid-col-left { grid-column: 1 / 6; position: sticky; top: 120px; }
-            .grid-col-right { grid-column: 7 / 13; display: flex; flex-direction: column; gap: 2.5rem; }
-            
-            .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
-            
-            /* Magnetic Hover Effects for Desktop */
-            .glass-panel:hover { 
-                transform: translateY(-8px); 
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 240, 255, 0.1);
-                border-color: rgba(0, 240, 255, 0.3);
-            }
-            .corporate.glass-panel:hover {
-                border-color: rgba(212, 175, 55, 0.3);
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.1);
-            }
-            .glass-panel { padding: 3rem; }
+            .grid-col-right { grid-column: 7 / 13; display: flex; flex-direction: column; gap: 2rem; }
+            .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+            .profile-image-container { height: 400px; }
         }
     </style>
 </head>
@@ -150,7 +119,7 @@
     <nav>
         <div class="logo" onclick="navigate('home')">Aoife<span>.</span></div>
         <div class="nav-controls">
-            <button class="btn-outline" onclick="toggleLang()" id="langBtn">ES</button>
+            <button class="btn-outline" onclick="toggleLang()" id="langBtn">Español</button>
             <button class="btn-solid" onclick="navigate('programmes')" id="navCta">View Programmes</button>
         </div>
     </nav>
@@ -158,7 +127,6 @@
     <main id="app"></main>
 
     <script>
-        // THE DATA DICTIONARY (English & Spanish)
         const db = {
             en: {
                 navBtn: "View Programmes",
@@ -166,76 +134,79 @@
                 pages: {
                     home: `
                         <header class="reveal">
-                            <span class="tag">Executive Business English</span>
-                            <h1 class="hero-title text-gradient">Bridge the gap between local talent and global expectations.</h1>
-                            <p class="hero-subtitle">We don't teach grammar. We forge cognitive fluency. Specializing in high-end communication training for Málaga's Tech Hub leaders, founders, and engineering teams.</p>
-                            <button class="btn-solid" style="margin-top: 1rem; padding: 1rem 2.5rem; font-size: 1rem;" onclick="navigate('programmes')">View Training Programmes</button>
+                            <span class="tag">Executive English Consultancy</span>
+                            <h1 class="hero-title">Stop losing your authority when you speak in English.</h1>
+                            <p class="hero-subtitle">You are a senior leader in Spanish. You shouldn't sound like a junior in English. We help Málaga's tech executives eradicate fossilized errors and master high-stakes communication—without the textbook fluff.</p>
+                            <button class="btn-solid" style="padding: 1rem 2rem; font-size: 1rem;" onclick="navigate('programmes')">View Training Tiers</button>
                         </header>
 
                         <div class="desktop-grid reveal">
                             <div class="grid-col-left">
-                                <span class="tag" style="color: var(--accent-cyan);">The Málaga Context</span>
-                                <h2 style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem;">Local Roots.<br>Global Authority.</h2>
-                                <p>Málaga is the new European tech capital. But for local engineering teams to lead initiatives at companies like Google, Citi, or international VC firms, "good enough" English is a bottleneck.</p>
+                                <div class="profile-image-container">
+                                    [Insert Professional Headshot of Aoife Here]
+                                </div>
+                                <span class="tag">The Málaga Context</span>
+                                <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">The PTA is global.<br>Your English must be.</h2>
+                                <p>Working with US or UK headquarters means fast-paced meetings and aggressive negotiations. If you are translating in your head, you are already a step behind.</p>
                             </div>
                             <div class="grid-col-right">
-                                <div class="glass-panel">
-                                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">For CTOs & Founders</h3>
-                                    <p>Master the cadence, conviction, and precise vocabulary required to secure Series A funding, dominate board meetings, and project unquestionable technical authority in English.</p>
+                                <div class="surface-panel">
+                                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">For CTOs & Founders</h3>
+                                    <p>We fix the hesitation. Master the precise pacing and vocabulary required to pitch VCs, defend technical debt to the board, and project unquestionable competence.</p>
                                 </div>
-                                <div class="glass-panel">
-                                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">For HR Directors</h3>
-                                    <p>Stop wasting budget on standard language apps. We run linguistic audits on your senior development teams and train them specifically on daily stand-ups, Agile communication, and cross-border empathy.</p>
+                                <div class="surface-panel">
+                                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">For Senior Engineers</h3>
+                                    <p>Stop apologizing for your English. We focus purely on Daily Stand-ups, Agile reporting, and the specific jargon you need to lead your cross-border teams effectively.</p>
                                 </div>
                             </div>
                         </div>
                     `,
                     programmes: `
                         <header class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                            <span class="tag">Investment & Architecture</span>
-                            <h1 class="hero-title text-gradient" style="font-size: 3.5rem;">Executive Training Tiers</h1>
-                            <p style="font-size: 1.2rem;">Select the engagement model that fits your immediate corporate goals. From high-impact hourly consulting to complete departmental linguistic audits.</p>
+                            <span class="tag">Investment & Strategy</span>
+                            <h1 class="hero-title" style="font-size: 3rem;">Straightforward Pricing.</h1>
+                            <p style="font-size: 1.15rem;">No hidden fees. No long-term contracts. Choose the engagement model that solves your immediate communication bottlenecks.</p>
                         </header>
 
                         <div class="pricing-grid reveal">
-                            <div class="glass-panel price-card">
+                            <div class="surface-panel price-card">
                                 <h3>The Strategic Hour</h3>
                                 <p style="font-size: 0.95rem; margin-top: 0.5rem;">For immediate, high-stakes preparation.</p>
                                 <div class="price-amount">€45<span>/hr</span></div>
                                 <ul class="price-features">
-                                    <li>Venture Capital Pitch rehearsal & refinement.</li>
-                                    <li>Emergency Keynote / Presentation preparation.</li>
+                                    <li>Emergency pitch rehearsal.</li>
                                     <li>Term-sheet negotiation roleplay.</li>
                                     <li>High-level interview prep for global roles.</li>
+                                    <li>Identify and fix your top 3 fossilized errors instantly.</li>
                                 </ul>
-                                <button class="btn-outline" style="width: 100%; border-color: var(--glass-border); color: var(--text-main); padding: 1rem;">Inquire Availability</button>
+                                <button class="btn-outline" style="width: 100%; padding: 1rem;">Book a Session</button>
                             </div>
 
-                            <div class="glass-panel price-card featured">
-                                <span class="tag" style="color: var(--accent-cyan); margin-bottom: 0.5rem; text-shadow: 0 0 10px var(--accent-cyan-dim);">Most Popular</span>
+                            <div class="surface-panel price-card featured">
+                                <span class="tag" style="margin-bottom: 0.5rem; color: var(--accent-brand);">The Fluency System</span>
                                 <h3>Executive Mastery</h3>
-                                <p style="font-size: 0.95rem; margin-top: 0.5rem;">Continuous cognitive fluency development.</p>
-                                <div class="price-amount text-gradient">€500<span>/month</span></div>
+                                <p style="font-size: 0.95rem; margin-top: 0.5rem;">Eradicate the habit of translating in your head.</p>
+                                <div class="price-amount">€500<span>/month</span></div>
                                 <ul class="price-features">
-                                    <li>Dedicated weekly 1-on-1 intensive sessions.</li>
-                                    <li>Real-time audits of your actual emails, Slack messages, and slide decks.</li>
-                                    <li>Custom vocabulary frameworks for your specific tech niche.</li>
-                                    <li>Direct asynchronous feedback.</li>
+                                    <li>Weekly 1-on-1 intensive coaching.</li>
+                                    <li>Real-time audits of your actual work emails and Slack messages.</li>
+                                    <li>Custom vocabulary frameworks for your specific tech stack.</li>
+                                    <li>Direct, asynchronous WhatsApp feedback.</li>
                                 </ul>
                                 <button class="btn-solid" style="width: 100%; padding: 1rem;">Apply for Roster</button>
                             </div>
 
-                            <div class="glass-panel price-card corporate">
-                                <h3>The Corporate Audit</h3>
+                            <div class="surface-panel price-card corporate">
+                                <h3>Team Alignment</h3>
                                 <p style="font-size: 0.95rem; margin-top: 0.5rem;">For Málaga HR Directors & Team Leads.</p>
                                 <div class="price-amount">Custom<span></span></div>
                                 <ul class="price-features">
-                                    <li>Full assessment of team communication friction.</li>
-                                    <li>Small-group workshops focused on Agile/Scrum English efficiency.</li>
-                                    <li>Bridging the cultural communication gap with US/UK headquarters.</li>
+                                    <li>Stop miscommunications with the US/UK headquarters.</li>
+                                    <li>Small-group workshops focused on Agile/Scrum efficiency.</li>
+                                    <li>Pronunciation clinics for technical vocabulary.</li>
                                     <li>Monthly progress reporting for HR.</li>
                                 </ul>
-                                <button class="btn-outline" style="width: 100%; border-color: var(--accent-gold); color: var(--accent-gold); padding: 1rem;">Contact Consultant</button>
+                                <button class="btn-outline" style="width: 100%; padding: 1rem;">Contact Consultant</button>
                             </div>
                         </div>
                     `
@@ -247,76 +218,79 @@
                 pages: {
                     home: `
                         <header class="reveal">
-                            <span class="tag">Inglés Ejecutivo para Negocios</span>
-                            <h1 class="hero-title text-gradient">Cerramos la brecha entre el talento local y las expectativas globales.</h1>
-                            <p class="hero-subtitle">No enseñamos gramática. Forjamos fluidez cognitiva. Especializados en entrenamiento de comunicación de alto nivel para líderes, fundadores y equipos de ingeniería en el hub tecnológico de Málaga.</p>
-                            <button class="btn-solid" style="margin-top: 1rem; padding: 1rem 2.5rem; font-size: 1rem;" onclick="navigate('programmes')">Ver Programas de Formación</button>
+                            <span class="tag">Consultoría de Inglés Ejecutivo</span>
+                            <h1 class="hero-title">Deja de perder tu autoridad cuando hablas en inglés.</h1>
+                            <p class="hero-subtitle">Eres un líder senior en español. No deberías sonar como un junior en inglés. Ayudamos a los ejecutivos tech de Málaga a erradicar errores fosilizados y dominar la comunicación de alto nivel, sin la paja de los libros de texto.</p>
+                            <button class="btn-solid" style="padding: 1rem 2rem; font-size: 1rem;" onclick="navigate('programmes')">Ver Programas</button>
                         </header>
 
                         <div class="desktop-grid reveal">
                             <div class="grid-col-left">
-                                <span class="tag" style="color: var(--accent-cyan);">El Contexto de Málaga</span>
-                                <h2 style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem;">Talento Local.<br>Autoridad Global.</h2>
-                                <p>Málaga es la nueva capital tecnológica de Europa. Pero para que los equipos locales lideren iniciativas en empresas como Google, Citi o fondos internacionales, un nivel "intermedio" de inglés es un obstáculo.</p>
+                                <div class="profile-image-container">
+                                    [Insertar Foto Profesional de Aoife Aquí]
+                                </div>
+                                <span class="tag">El Contexto de Málaga</span>
+                                <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">El PTA es global.<br>Tu inglés debe serlo.</h2>
+                                <p>Trabajar con sedes en EE.UU. o Reino Unido implica reuniones rápidas y negociaciones agresivas. Si estás traduciendo en tu cabeza, ya vas un paso por detrás.</p>
                             </div>
                             <div class="grid-col-right">
-                                <div class="glass-panel">
-                                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Para CTOs y Fundadores</h3>
-                                    <p>Domine el ritmo, la convicción y el vocabulario preciso necesarios para asegurar rondas de financiación, dominar las reuniones de directorio y proyectar una autoridad técnica incuestionable en inglés.</p>
+                                <div class="surface-panel">
+                                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Para CTOs y Fundadores</h3>
+                                    <p>Eliminamos la duda al hablar. Domina el ritmo y el vocabulario preciso para presentar ante inversores (VCs), defender deuda técnica ante el directorio y proyectar una competencia incuestionable.</p>
                                 </div>
-                                <div class="glass-panel">
-                                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Para Directores de RRHH</h3>
-                                    <p>Deje de gastar presupuesto en aplicaciones de idiomas estándar. Realizamos auditorías lingüísticas a sus equipos senior y los capacitamos específicamente para reuniones Agile, comunicación técnica y empatía transfronteriza.</p>
+                                <div class="surface-panel">
+                                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Para Ingenieros Senior</h3>
+                                    <p>Deja de pedir perdón por tu inglés. Nos centramos puramente en las reuniones diarias (Dailies), reportes Agile y la jerga específica que necesitas para liderar equipos internacionales con seguridad.</p>
                                 </div>
                             </div>
                         </div>
                     `,
                     programmes: `
                         <header class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                            <span class="tag">Inversión y Arquitectura</span>
-                            <h1 class="hero-title text-gradient" style="font-size: 3.5rem;">Niveles de Formación Ejecutiva</h1>
-                            <p style="font-size: 1.2rem;">Seleccione el modelo que mejor se adapte a sus objetivos corporativos. Desde consultoría estratégica por horas hasta auditorías lingüísticas departamentales.</p>
+                            <span class="tag">Inversión y Estrategia</span>
+                            <h1 class="hero-title" style="font-size: 3rem;">Precios Claros.</h1>
+                            <p style="font-size: 1.15rem;">Sin costes ocultos. Sin contratos a largo plazo. Elige el modelo que resuelva tus cuellos de botella de comunicación de inmediato.</p>
                         </header>
 
                         <div class="pricing-grid reveal">
-                            <div class="glass-panel price-card">
+                            <div class="surface-panel price-card">
                                 <h3>La Sesión Estratégica</h3>
                                 <p style="font-size: 0.95rem; margin-top: 0.5rem;">Preparación inmediata para momentos clave.</p>
                                 <div class="price-amount">€45<span>/hr</span></div>
                                 <ul class="price-features">
-                                    <li>Ensayo y perfeccionamiento de Pitches para Inversores.</li>
-                                    <li>Preparación urgente para conferencias o presentaciones.</li>
-                                    <li>Roleplay de negociación de hojas de términos.</li>
+                                    <li>Ensayo urgente de presentaciones o pitches.</li>
+                                    <li>Roleplay de negociación de contratos (Term-sheets).</li>
                                     <li>Preparación de entrevistas para roles globales.</li>
+                                    <li>Identifica y corrige tus 3 peores errores fosilizados al instante.</li>
                                 </ul>
-                                <button class="btn-outline" style="width: 100%; border-color: var(--glass-border); color: var(--text-main); padding: 1rem;">Consultar Disponibilidad</button>
+                                <button class="btn-outline" style="width: 100%; padding: 1rem;">Reservar Sesión</button>
                             </div>
 
-                            <div class="glass-panel price-card featured">
-                                <span class="tag" style="color: var(--accent-cyan); margin-bottom: 0.5rem; text-shadow: 0 0 10px var(--accent-cyan-dim);">Más Solicitado</span>
+                            <div class="surface-panel price-card featured">
+                                <span class="tag" style="margin-bottom: 0.5rem; color: var(--accent-brand);">El Sistema de Fluidez</span>
                                 <h3>Dominio Ejecutivo</h3>
-                                <p style="font-size: 0.95rem; margin-top: 0.5rem;">Desarrollo continuo de fluidez cognitiva.</p>
-                                <div class="price-amount text-gradient">€500<span>/mes</span></div>
+                                <p style="font-size: 0.95rem; margin-top: 0.5rem;">Erradica el hábito de traducir en tu cabeza.</p>
+                                <div class="price-amount">€500<span>/mes</span></div>
                                 <ul class="price-features">
-                                    <li>Sesiones intensivas semanales 1-a-1 dedicadas.</li>
-                                    <li>Auditorías en tiempo real de sus correos, Slack y presentaciones.</li>
-                                    <li>Marcos de vocabulario a medida para su nicho.</li>
-                                    <li>Feedback asíncrono directo y continuo.</li>
+                                    <li>Sesiones intensivas semanales 1-a-1.</li>
+                                    <li>Auditoría en tiempo real de tus correos y mensajes de Slack del trabajo.</li>
+                                    <li>Marcos de vocabulario adaptados a tu stack tecnológico.</li>
+                                    <li>Feedback asíncrono directo por WhatsApp.</li>
                                 </ul>
                                 <button class="btn-solid" style="width: 100%; padding: 1rem;">Solicitar Plaza</button>
                             </div>
 
-                            <div class="glass-panel price-card corporate">
-                                <h3>Auditoría Corporativa</h3>
+                            <div class="surface-panel price-card corporate">
+                                <h3>Alineación de Equipo</h3>
                                 <p style="font-size: 0.95rem; margin-top: 0.5rem;">Para RRHH y Team Leads en Málaga.</p>
                                 <div class="price-amount">A Medida<span></span></div>
                                 <ul class="price-features">
-                                    <li>Evaluación completa de la fricción comunicativa del equipo.</li>
-                                    <li>Talleres reducidos en inglés eficiente para metodología Agile.</li>
-                                    <li>Cierre de la brecha cultural con sedes en EE.UU. / Reino Unido.</li>
+                                    <li>Frena los malentendidos con las sedes de EE.UU. / Reino Unido.</li>
+                                    <li>Talleres en grupos reducidos para eficiencia en Agile/Scrum.</li>
+                                    <li>Clínicas de pronunciación para vocabulario técnico.</li>
                                     <li>Informes mensuales de progreso para RRHH.</li>
                                 </ul>
-                                <button class="btn-outline" style="width: 100%; border-color: var(--accent-gold); color: var(--accent-gold); padding: 1rem;">Contactar Consultora</button>
+                                <button class="btn-outline" style="width: 100%; padding: 1rem;">Contactar Consultora</button>
                             </div>
                         </div>
                     `
@@ -324,11 +298,9 @@
             }
         };
 
-        // Application State
         let currentLang = 'en';
         let currentRoute = 'home';
 
-        // Router & Translator Engine
         function navigate(route) {
             currentRoute = route;
             render();
@@ -342,20 +314,13 @@
 
         function render() {
             const data = db[currentLang];
-            
-            // Update Navigation UI
             document.getElementById('navCta').innerText = data.navBtn;
             document.getElementById('langBtn').innerText = data.langToggle;
-
-            // Inject Page Content
             const app = document.getElementById('app');
             app.innerHTML = data.pages[currentRoute];
-
-            // Re-initialize scroll animations
             setTimeout(initAnimations, 50); 
         }
 
-        // High-End Scroll Animations
         function initAnimations() {
             const reveals = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
@@ -364,10 +329,7 @@
                         entry.target.classList.add('active');
                     }
                 });
-            }, { 
-                threshold: 0.1, 
-                rootMargin: "0px 0px -50px 0px"
-            });
+            }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
 
             reveals.forEach(element => {
                 element.classList.remove('active'); 
@@ -375,7 +337,6 @@
             });
         }
 
-        // Boot the App
         render();
     </script>
 </body>
