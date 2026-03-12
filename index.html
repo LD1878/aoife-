@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aoife | Executive Tech English</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;600&display=swap');
+
+        :root {
+            --bg-dark: #050507;
+            --text-light: #EAEAEA;
+            --accent-neon: #00F0FF;
+            --accent-gold: #D4AF37;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            background-color: var(--bg-dark); color: var(--text-light);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden; scroll-behavior: smooth;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 240, 255, 0.04), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.04), transparent 25%),
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; margin: 0; }
+        p { line-height: 1.6; color: #A0A0A0; }
+        a { color: var(--text-light); text-decoration: none; cursor: pointer; transition: color 0.3s; }
+        a:hover { color: var(--accent-neon); }
+
+        /* Navigation */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 2vw 5vw; border-bottom: 1px solid var(--glass-border);
+            position: sticky; top: 0; background: rgba(5, 5, 7, 0.8); backdrop-filter: blur(10px); z-index: 100;
+        }
+        .logo { font-size: 1.5rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;}
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        
+        .lang-toggle {
+            background: transparent; border: 1px solid var(--accent-neon);
+            color: var(--accent-neon); padding: 0.5rem 1.5rem;
+            border-radius: 50px; cursor: pointer; font-family: 'Space Grotesk', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .lang-toggle:hover { background: var(--accent-neon); color: var(--bg-dark); }
+
+        /* Layout & Utilities */
+        .container {
+            display: grid; grid-template-columns: repeat(12, 1fr);
+            gap: 2rem; padding: 5vw; max-width: 1600px; margin: 0 auto;
+        }
+        .glass { background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 3rem; }
+        
+        /* Scroll Animations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Page Specific Styles */
+        .hero { grid-column: 1 / 10; margin-bottom: 4rem;}
+        .hero h1 { font-size: clamp(3rem, 5vw, 6rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.25rem; font-weight: 300; max-width: 700px; }
+        .accent-text { color: var(--accent-neon); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 1rem;}
+
+        .grid-cards { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { padding: 2rem; border-top: 2px solid transparent; transition: all 0.4s; cursor: default; }
+        .card:hover { border-top-color: var(--accent-neon); background: rgba(255,255,255,0.05); transform: translateY(-5px); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;}
+
+        .article-list { grid-column: 1 / 8; display: flex; flex-direction: column; gap: 3rem; }
+        .article { border-left: 1px solid var(--accent-gold); padding-left: 2rem; }
+        .article span { color: var(--accent-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .article h2 { font-size: 2.5rem; margin: 0.5rem 0; cursor: pointer; transition: color 0.3s; }
+        .article h2:hover { color: var(--accent-neon); }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* In a full build, add a hamburger menu here */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="navigate('home')">Aoife.</div>
+        <div class="nav-links" id="nav-links">
+            </div>
+    </nav>
+
+    <main id="app"></main>
+
+    <script>
+        // 1. THE DATA DICTIONARY
+        const db = {
+            en: {
+                nav: { home: "Home", methodology: "Methodology", journal: "The Letter", btn: "ES" },
+                pages: {
+                    home: `
+                        <div class="container">
+                            <header class="hero glass reveal">
+                                <span class="accent-text">Executive Tech English</span>
+                                <h1>"Good enough" is the enemy of tech leadership.</h1>
+                                <p>Command the room with cognitive fluency. We transform functional communication into disruptive presence for Malaga's leading technical executives.</p>
+                            </header>
+                            <div class="grid-cards reveal">
+                                <div class="glass card">
+                                    <h3>AI Ethics & Diplomacy</h3>
+                                    <p>Articulating complex algorithms and moral imperatives to non-technical stakeholders.</p>
+                                </div>
+                                <div class="glass card">
+                                    <h3>VC Pitching</h3>
+                                    <p>Mastering the cadence, conviction, and vocabulary required to secure Series A to C funding.</p>
+                                </div>
+                                <div class="glass card">
+                                    <h3>Agile Communication</h3>
+                                    <p>Streamlining daily stand-ups and post-mortems with high-impact, low-friction English.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `,
+                    methodology: `
+                        <div class="container">
+                            <header class="hero reveal">
+                                <span class="accent-text">The Framework</span>
+                                <h1>Architecting Fluency.</h1>
+                                <p>We don't use textbooks. We audit your real-world communication stacks—your slide decks, your Slack channels, your board meetings—and optimize them for high-level impact.</p>
+                            </header>
+                            <div class="grid-cards reveal">
+                                <div class="glass card" style="border-top-color: var(--accent-gold);">
+                                    <h3>Phase 1: The Audit</h3>
+                                    <p>Analyzing your current linguistic patterns to identify friction points in your executive delivery.</p>
+                                </div>
+                                <div class="glass card" style="border-top-color: var(--accent-gold);">
+                                    <h3>Phase 2: The Architecture</h3>
+                                    <p>Building a custom vocabulary framework tailored to your specific tech stack and market niche.</p>
+                                </div>
+                                <div class="glass card" style="border-top-color: var(--accent-gold);">
+                                    <h3>Phase 3: The Execution</h3>
+                                    <p>Simulating high-pressure boardroom scenarios, VC pitches, and aggressive negotiations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `,
+                    journal: `
+                        <div class="container">
+                            <header class="hero reveal">
+                                <span class="accent-text">Editorial</span>
+                                <h1>The Malaga Tech Letter.</h1>
+                                <p>Insights on cognitive fluency, venture capital terminology, and the intersection of language and high-end tech leadership.</p>
+                            </header>
+                            <div class="article-list reveal">
+                                <article class="article">
+                                    <span>Issue 04 • Communication</span>
+                                    <h2>The Architecture of a Pitch</h2>
+                                    <p>Why narrative pacing and pause structures matter more to investors than the metrics in your data room.</p>
+                                </article>
+                                <article class="article">
+                                    <span>Issue 03 • Negotiation</span>
+                                    <h2>Nuance in Term Sheets</h2>
+                                    <p>Decoding the soft language of aggressive venture capital negotiations and learning to push back with sophistication.</p>
+                                </article>
+                                <article class="article">
+                                    <span>Issue 02 • Leadership</span>
+                                    <h2>Engineering Empathy</h2>
+                                    <p>How CTOs can use advanced linguistic structures to bridge the gap between development teams and the C-Suite.</p>
+                                </article>
+                            </div>
+                        </div>
+                    `
+                }
+            },
+            es: {
+                nav: { home: "Inicio", methodology: "Metodología", journal: "La Gaceta", btn: "EN" },
+                pages: {
+                    home: `
+                        <div class="container">
+                            <header class="hero glass reveal">
+                                <span class="accent-text">Inglés Ejecutivo Tecnológico</span>
+                                <h1>"Suficientemente bueno" es el enemigo del liderazgo tech.</h1>
+                                <p>Domina la sala con fluidez cognitiva. Transformamos la comunicación funcional en presencia disruptiva para los principales ejecutivos de Málaga.</p>
+                            </header>
+                            <div class="grid-cards reveal">
+                                <div class="glass card">
+                                    <h3>Ética de IA y Diplomacia</h3>
+                                    <p>Articulando algoritmos complejos a partes interesadas no técnicas con absoluta precisión.</p>
+                                </div>
+                                <div class="glass card">
+                                    <h3>Pitching para Capital Riesgo</h3>
+                                    <p>Dominando la cadencia y convicción requeridas para asegurar financiamiento de Serie A a C.</p>
+                                </div>
+                                <div class="glass card">
+                                    <h3>Comunicación Agile</h3>
+                                    <p>Optimizando reuniones diarias con un inglés ejecutivo de alto impacto y baja fricción.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `,
+                    methodology: `
+                        <div class="container">
+                            <header class="hero reveal">
+                                <span class="accent-text">El Marco de Trabajo</span>
+                                <h1>Arquitectura de Fluidez.</h1>
+                                <p>No usamos libros de texto. Auditamos sus comunicaciones reales (presentaciones, reuniones de directorio) y las optimizamos para lograr el máximo impacto.</p>
+                            </header>
+                            <div class="grid-cards reveal">
+                                <div class="glass card" style="border-top-color: var(--accent-gold);">
+                                    <h3>Fase 1: La Auditoría</h3>
+                                    <p>Análisis de sus patrones lingüísticos para identificar puntos de fricción en su entrega ejecutiva.</p>
+                                </div>
+                                <div class="glass card" style="border-top-color: var(--accent-gold);">
+                                    <h3>Fase 2: La Arquitectura</h3>
+                                    <p>Construcción de un marco de vocabulario personalizado adaptado a su nicho tecnológico.</p>
+                                </div>
+                                <div class="glass card" style="border-top-color: var(--accent-gold);">
+                                    <h3>Fase 3: La Ejecución</h3>
+                                    <p>Simulación de escenarios de alta presión, pitches de VC y negociaciones agresivas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `,
+                    journal: `
+                        <div class="container">
+                            <header class="hero reveal">
+                                <span class="accent-text">Editorial</span>
+                                <h1>La Gaceta Tech de Málaga.</h1>
+                                <p>Perspectivas sobre fluidez cognitiva, terminología de capital riesgo y la intersección del lenguaje con el liderazgo tecnológico.</p>
+                            </header>
+                            <div class="article-list reveal">
+                                <article class="article">
+                                    <span>Edición 04 • Comunicación</span>
+                                    <h2>La Arquitectura de un Pitch</h2>
+                                    <p>Por qué el ritmo narrativo importa más a los inversores que las métricas de su sala de datos.</p>
+                                </article>
+                                <article class="article">
+                                    <span>Edición 03 • Negociación</span>
+                                    <h2>Matices en las Hojas de Términos</h2>
+                                    <p>Decodificando el lenguaje suave de las negociaciones de capital riesgo y aprendiendo a responder con sofisticación.</p>
+                                </article>
+                                <article class="article">
+                                    <span>Edición 02 • Liderazgo</span>
+                                    <h2>Ingeniería de la Empatía</h2>
+                                    <p>Cómo los CTOs pueden usar estructuras avanzadas para acortar la brecha entre los desarrolladores y la directiva.</p>
+                                </article>
+                            </div>
+                        </div>
+                    `
+                }
+            }
+        };
+
+        // 2. STATE MANAGEMENT
+        let currentLang = 'en';
+        let currentRoute = 'home';
+
+        // 3. THE ROUTER & RENDERER
+        function navigate(route) {
+            currentRoute = route;
+            render();
+            window.scrollTo(0,0); // Scroll to top on page change
+        }
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            render();
+        }
+
+        function render() {
+            const data = db[currentLang];
+            
+            // Render Navigation Menu
+            document.getElementById('nav-links').innerHTML = `
+                <a onclick="navigate('home')">${data.nav.home}</a>
+                <a onclick="navigate('methodology')">${data.nav.methodology}</a>
+                <a onclick="navigate('journal')">${data.nav.journal}</a>
+                <button class="lang-toggle" onclick="toggleLang()">${data.nav.btn}</button>
+            `;
+
+            // Render Page Content
+            document.getElementById('app').innerHTML = data.pages[currentRoute];
+
+            // 4. INIT INTERSECTION OBSERVER (Scroll Animations)
+            initAnimations();
+        }
+
+        // 5. THE ANIMATION ENGINE
+        function initAnimations() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of element is visible
+
+            reveals.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Boot up the application
+        render();
+    </script>
+</body>
+</html>
